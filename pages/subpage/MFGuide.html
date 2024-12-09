@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanism and Fabrication</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="../../js/d3DrawIcon.js"></script>
+
+
+    <!-- outline Import CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/AngeloFaella/DocumentOutline@1.0/outline.css">
+    <!-- outline Import the library -->
+    <!-- <script src="https://cdn.jsdelivr.net/gh/AngeloFaella/DocumentOutline@1.0/DocumentOutline.js"></script> -->
+    <script src="../../js/DocumentOutline.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            background-color: #fdfdfd;
+            font-size: calc(1728vw / 1728);
+        }
+
+        h1 {
+            font-family: 'DM Serif Display', serif;
+            color: #030303;
+            font-size: 4.5rem;
+            margin: 0;
+        }
+
+        h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: #030303;
+            margin: 0;
+        }
+
+        h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: #030303;
+            margin: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .h1StylePTag {
+            font-family: 'DM Serif Display', serif;
+            color: #030303;
+            font-size: 4.5rem;
+            margin: 0;
+        }
+
+        .h2StylePTag {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            color: #030303;
+            margin: 0;
+        }
+
+        .h3StylePTag {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            color: #030303;
+            margin: 0;
+        }
+
+        li,
+        p {
+            font-family: 'Noto Sans', sans-serif;
+            color: rgba(3, 3, 3, 0.7);
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        a {
+            font-family: 'Noto Sans', sans-serif;
+            color: rgba(229, 30, 243, 0.7);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        figcaption {
+            font-family: 'Noto Sans', sans-serif;
+            color: rgba(3, 3, 3, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 0.3rem;
+        }
+
+        div.btn-container {
+            display: flex;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        div.btn-container i {
+            display: inline-block;
+            position: relative;
+            top: -9px;
+        }
+
+        label {
+            font-size: 13px;
+            color: #424242;
+            font-weight: 500;
+        }
+
+        .btn-color-mode-switch {
+            display: inline-block;
+            margin: 0px;
+            position: relative;
+        }
+
+        .btn-color-mode-switch>label.btn-color-mode-switch-inner {
+            margin: 0px;
+            width: 8rem;
+            height: 2rem;
+            background: #E0E0E0;
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.3s ease;
+            /*box-shadow: 0px 0px 8px 0px rgba(17, 17, 17, 0.34) inset;*/
+            display: block;
+        }
+
+        .btn-color-mode-switch>label.btn-color-mode-switch-inner:before {
+            content: attr(data-on);
+            position: absolute;
+            font-size: 0.8rem;
+            font-family: 'ZCOOL XiaoWei';
+            top: 0.3rem;
+            right: 1.2rem;
+
+        }
+
+        .btn-color-mode-switch>label.btn-color-mode-switch-inner:after {
+            content: attr(data-off);
+            width: 4rem;
+            height: 1.6rem;
+            background: #fff;
+            border-radius: 2rem;
+            position: absolute;
+            left: 0.2rem;
+            top: 0.2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 0.8rem;
+            box-shadow: 0px 0px 6px -2px #111;
+            font-family: 'ZCOOL XiaoWei';
+            padding: .1rem 0px;
+        }
+
+        .btn-color-mode-switch>.alert {
+            display: none;
+            background: #FF9800;
+            border: none;
+            color: #fff;
+        }
+
+        .btn-color-mode-switch input[type="checkbox"] {
+            cursor: pointer;
+            width: 4rem;
+            height: 1.6rem;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+            margin: 0px;
+        }
+
+        .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
+            background: #3b3b3b;
+            color: #fff;
+        }
+
+        .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:after {
+            content: attr(data-on);
+            left: 3.8rem;
+            background: #5d5d5d;
+        }
+
+        .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner:before {
+            content: attr(data-off);
+            right: auto;
+            left: 20px;
+        }
+
+        /* .btn-color-mode-switch input[type="checkbox"]:checked+label.btn-color-mode-switch-inner {
+            background: #66BB6A;
+            color: #fff;
+        } */
+
+        .btn-color-mode-switch input[type="checkbox"]:checked~.alert {
+            display: block;
+        }
+
+        /* header 锚泊咯 */
+        .glassmorphismHeader {
+            background: rgba(249, 249, 249, 0.6);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            z-index: 99;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="glassmorphismHeader"
+        style="position: fixed; top: 0; left: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 0.4rem 20rem 0.4rem 30rem;">
+        <a href="../../index.html">
+            <div style="display: flex; align-items: center;">
+                <div id="icon"></div>
+                <p class="h3StylePTag">INTELLITEX</p>
+            </div>
+        </a>
+
+    </div> -->
+
+    <div style="margin: 6rem 20rem 0 24rem;">
+        <p class="h1StylePTag content" data-lan="en" data-en="Step-by-step Guide" style="margin: 0 0 4rem 0;">
+            Mechanism and Fabrication</p>
+        <!-- <button onclick="toggleLanguage()">切换语言</button> -->
+
+        <p class="content">This guide will walk you through the process of designing, fabricating, and using TH-Wood, an
+            actuator that responds to
+            both temperature and humidity changes. Inspired by the bi-layer deformation of pinecones, TH-Wood combines
+            wood veneer
+            with 3D-printed Polyhydroxyalkanoate (PHA) stripes, creating an actuator with flexible and responsive
+            actuation.</p>
+        <h2 class="content" style="margin: 2rem 0;">Understand How It
+            Works</h2>
+
+        <!-- <img src="../../resources/img/workflow/doublecoat.png" alt="" style="width: 100%; margin-bottom: 2rem;"> -->
+
+        <p>The actuator works by exploiting the different expansion behaviors of its two layers:</p>
+
+        <!-- <ul> -->
+        <!-- <li> -->
+        <ul>
+            <li>Wood veneer responds to humidity (hygroscopic expansion), bending toward
+                the PHA layer.</li>
+            <li>PHA responds to temperature changes (thermal expansion), bending away from
+                the wood veneer.</li>
+        </ul>
+
+        <p>These combined behaviors create precise, controlled deformation based on environmental conditions.</p>
+        <img src="../../resources/img/Mechanism and Fabrication/mechanism.png" alt=""
+            style="width: 100%; margin: 2rem 0;">
+
+
+        <!-- </ul> -->
+
+
+        <h2 style="margin: 6rem 0 2rem 0;">
+            Materials Preparation</h2>
+        <ul>
+            <li>Elm Veneer (0.2 mm thick) with uniform fiber orientation, ideal for
+                thermal-driven actuation. You can also choose
+                other thin, anisotropic wood types with noticeable expansion properties.</li>
+            <li>Pine Veneer (0.5 mm thick), also with uniform fiber orientation, is
+                suitable for humidity-driven actuation. This type
+                of wood offers higher mechanical strength and rigidity.</li>
+            <li>Polyhydroxyalkanoate (PHA) filament for 3D printing.</li>
+            <li>Soy Wax for optional coating to reduce humidity-driven deformation.
+                For better control over deformation, use wood veneer with fibers running parallel to the sheet edges.
+            </li>
+        </ul>
+        <!-- <figure>
+            <img src="../../resources/img/workflow/fabricationflow.png" alt="" style="width: 100%;">
+            <figcaption>Fabrication pipeline of interactive textiles using fabric inputs fabricated by the
+                double-coating process.</figcaption>
+        </figure> -->
+
+        <!-- <p>We proposed a pipeline to build integrated interactive textiles using fabric inputs fabricated with the
+            double-coating process.</p> -->
+
+        <img src="../../resources/img/Mechanism and Fabrication/material.png" alt=""
+            style="width: 100%; margin: 2rem 0;">
+        <!-- <p>Connect output components (if any), and a voltage divider circuit based on microcomputer ESP32C3 onto the
+            fabric using metal button. We provide several output components to support a
+            wider range of expression possibilities for users, including LEDs, vibrators, and buzzers. </p> -->
+
+        <h2 class="content" style="margin: 2rem 0;">Fabricating a Thermal-Driven Actuator</h2>
+
+        <!-- <img src="../../resources/img/workflow/doublecoat.png" alt="" style="width: 100%; margin-bottom: 2rem;"> -->
+
+        <!-- <p>The actuator works by exploiting the different expansion behaviors of its two layers:</p> -->
+
+        <!-- <ul> -->
+        <!-- <li> -->
+        <h3 style="margin: 2rem 0 1rem 0;">Step 1: Material Selection</h3>
+
+        <ul>
+            <li>For thermal-driven actuation, use 0.2 mm elm veneer.</li>
+            <li>Wax Coating: Apply a hydrophobic soy wax coating to the wood veneer to minimize deformation caused by
+                humidity.</li>
+            <li>Use PHA filament for the 3D-printed stripes.</li>
+        </ul>
+        <!-- </li> -->
+        <!-- <li> -->
+        <h3 style="margin: 2rem 0 1rem 0;">Step 2: Hot Pressing</h3>
+        <p>Hot press the wood veneer to ensure it remains flat and stable, avoiding warping:</p>
+        <ul>
+            <li>Temperature: 150°C</li>
+            <li>Time: 20 minutes</li>
+        </ul>
+        <p>This step prepares the veneer for 3D printing, ensuring a smooth and compact surface.</p>
+        <img src="../../resources/img/Mechanism and Fabrication/hot-press.gif" alt=""
+            style="width: 100%; margin: 2rem 0;">
+
+
+        <h3 style="margin: 2rem 0 1rem 0;">Step 3: 3D Printing</h3>
+        <p>Print the PHA stripes directly onto the prepared wood veneer to form the bi-layer actuator:</p>
+        <h5 style="margin: 2rem 0 1rem 0;">Printer Settings:</h5>
+        <ul>
+            <li>Speed: 200 mm/s</li>
+            <li>Nozzle Temperature: 220°C</li>
+            <li>Layer Height: 0.1 mm</li>
+            <li>Toolpath Width: 0.4 mm</li>
+        </ul>
+        <p>Tip: If double-sided printing is required, ensure precise alignment of the printed stripes on both sides to
+            maintain
+            consistent deformation.</p>
+        <img src="../../resources/img/Mechanism and Fabrication/3Dprinting.gif" alt=""
+            style="width: 100%; margin: 2rem 0;">
+        <h3 style="margin: 2rem 0 1rem 0;">Step 4: Laser Cutting</h3>
+        <p>Laser cut the printed actuator into the desired shape.</p>
+        <ul>
+            <li>Cutting Speed: 50 mm/s</li>
+            <li>Cutting Power: 40–60%</li>
+        </ul>
+        <p>Once cut, the actuator will bend into the desired shape as the environmental temperature changes.</p>
+        <img src="../../resources/img/Mechanism and Fabrication/laser.gif" alt="" style="width: 100%; margin: 2rem 0;">
+
+        <h3 style="margin: 2rem 0 1rem 0;">Step 5: Wax Coating</h3>
+        <p>For thermal-driven actuation only, apply a soy wax coating to both sides of the wood veneer:</p>
+        <ul>
+            <li>Wax Temperature: 60°C</li>
+            <li>Application: Apply a thin layer to both sides, allowing the wax to cover and penetrate the wood fibers.
+            </li>
+        </ul>
+        <p>Note: The wax coating is unaffected by typical ambient temperatures during use, ensuring it won’t melt or
+            interfere with
+            the actuator’s performance.</p>
+        <img src="../../resources/img/Mechanism and Fabrication/wax.gif" alt="" style="width: 100%; margin: 2rem 0;">
+        <p>After completing the above steps, you will have a temperature-driven actuator ready for use.</p>
+        <img src="../../resources/img/Mechanism and Fabrication/thermal-driven.gif" alt=""
+            style="width: 100%; margin: 2rem 0;">
+
+
+        <h2 style="margin: 6rem 0 2rem 0;">Fabricating a Hygro-Driven Actuator</h2>
+        <p>The fabrication process for the humidity-driven actuator is similar to that for the thermal-driven actuator,
+            with two
+            key differences:</p>
+        <ol style="margin: 1rem 0;">
+            <li>Use 0.5 mm thick pine veneer instead of elm veneer.</li>
+            <li>Skip the wax coating step, as it is not needed for humidity-driven actuation.
+                Following these steps, you will have a humidity-driven actuator.
+            </li>
+        </ol>
+        <p>Following these steps, you will have a humidity-driven actuator.</p>
+        <img src="../../resources/img/Mechanism and Fabrication/hygro-driven.gif" alt=""
+            style="width: 100%; margin: 2rem 0;">
+
+        <h2 style="margin: 6rem 0 2rem 0;">Coordinating Modes of Actuation</h2>
+        <p>TH-Wood actuators can be controlled in various modes depending on environmental changes. There are two basic
+            modes and
+            three coordinating modes to choose from:</p>
+        <h5 style="margin: 2rem 0 1rem 0;">Basic Modes:</h5>
+        <ol style="margin: 1rem 0;">
+            <li>Thermal-Driven Mode: The actuator deforms when the temperature reaches a specified level.</li>
+            <li>Hygro-Driven Mode: The actuator deforms when humidity reaches a certain threshold.
+                Coordinating Modes:
+                <ol style="margin: 1rem 0;">
+                    <li>Synergistic Mode (AND Logic): The actuator deforms only when both temperature and humidity
+                        meet their specific
+                        conditions. If only one factor meets the requirement, the actuator remains inactive.</li>
+                    <li>Substitutive Mode (OR Logic): The actuator deforms when either temperature or humidity reaches
+                        the specified
+                        condition.</li>
+                    <li>3 Serial Mode: The actuator responds sequentially to changes in temperature and humidity. When
+                        one factor reaches a
+                        certain threshold, a specific function is triggered. When the other factor reaches another
+                        threshold, a subsequent
+                        function is activated. These functions operate in sequence, without interfering with each other.
+                    </li>
+                </ol>
+            </li>
+        </ol>
+
+        <img src="../../resources/img/Mechanism and Fabrication/coordinating.png" alt=""
+            style="width: 100%; margin: 2rem 0;">
+        <p>Tip: Choose the appropriate control mode based on the requirements of your application for precise
+            deformation behavior.
+            Learning application examples helps you better understand coordinating modes.</p>
+        <a href="../subpage/appExamples.html">
+            <h5 style="margin: 2rem 0 1rem 0;">Application Examples</h5>
+        </a>
+        <div style="margin-top: 10rem;"></div>
+    </div>
+
+    <!-- 绘制图标 -->
+    <script>
+        drawIcon(50 * (window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth) / 1728, "icon", false, false);
+    </script>
+
+    <!-- 渲染outline -->
+    <script>
+        let outline = new DocumentOutline({
+            backgroundColor: '#2c2c2c',
+            textColor: 'white',
+            textColorLight: 'lightgrey',
+            accentColor: '#858585',
+            defaultOpen: false
+        });
+        d3.select(".outline-nav")
+            .style("z-index", "99")
+    </script>
+
+
+</body>
+
+</html>
