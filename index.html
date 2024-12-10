@@ -37,7 +37,7 @@
             /* font-family: 'Caveat', cursive; */
             /* font-family: 'Vollkorn', serif; */
             font-family: 'DM Serif Display', serif;
-            color: #030303;
+            color: white;
             font-size: 4.5rem;
             margin: 0;
         }
@@ -48,7 +48,7 @@
             /* font-family: 'Vollkorn', serif; */
             font-family: 'DM Serif Display', serif;
             font-size: 1.5rem;
-            color: #030303;
+            color: white;
             margin: 0;
 
             position: relative;
@@ -62,7 +62,7 @@
         .h3StylePTag {
             font-family: 'DM Serif Display', serif;
             font-size: 1.5rem;
-            color: #030303;
+            color: white;
             margin: 0;
 
             position: relative;
@@ -84,7 +84,7 @@
             /* 设置下划线宽度为 h3 元素的宽度 */
             height: 2px;
             /* 设置下划线高度，根据需要调整 */
-            background-color: #030303;
+            background-color: white;
             /* 设置下划线颜色，根据需要调整 */
             transform: scaleX(0);
             /* 设置初始状态下划线宽度为 0，即不显示 */
@@ -99,7 +99,7 @@
 
         p {
             font-family: 'Noto Sans', sans-serif;
-            color: #030303;
+            color: white;
             font-size: 1rem;
         }
 
@@ -128,66 +128,64 @@
 </head>
 
 <body>
-    <div class="row">
-        <div class="col">
-            <!-- <div style="display: flex; align-items: center;">
-                <div id="icon"></div>
-                <p class="h3StylePTag">INTELLITEX</p>
-            </div> -->
-            <div style="display: flex; align-items: center; height: 100%;">
-                <div style="padding: 0 8rem 0 10rem;">
-                    <div style="margin-bottom: 4rem;">
-                        <h1 style="text-align: center; margin-bottom: 2rem;">TH-Wood</h1>
-                        <p style="text-align: center;">A biodegradable actuator system made from wood veneer and
+    <div class="row" style="background: url(resources/img/mainViz.png);">
+        <div style="display: flex; align-items: center; height: 100%;">
+            <div style="padding: 0 12rem;">
+                <div style="margin-bottom: 4rem;">
+                    <h1 style="text-align: center; margin-bottom: 1rem;font-size: 8rem;">TH-Wood</h1>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <p style="width: 72%; text-align: center;font-size: 1.2rem;">A biodegradable actuator system
+                            made
+                            from wood veneer
+                            and
                             microbial polymers, responsive to temperature and humidity,
                             designed for operation in complex outdoor environments. </p>
                     </div>
-                    <div style="display: flex; flex-direction: column; align-items: flex-end; padding-right: 8rem;">
-                        <div style="display: flex; margin-bottom: 1rem;">
-                            <a href="pages/subpage/MFGuide.html">
-                                <h3 style="margin-right: 2rem;">Mechanism and Fabrication</h3>
-                            </a>
-                            <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;">
-                        </div>
-                        <div style="display: flex; margin-bottom: 1rem;">
-                            <a href="pages/subpage/library.html">
-                                <h3 style="margin-right: 2rem;">Plant-inspired Library</h3>
-                            </a>
-                            <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;">
-                        </div>
-                        <div style="display: flex; margin-bottom: 1rem;">
-                            <a href="pages/subpage/appExamples.html">
-                                <h3 style="margin-right: 2rem;">Application Examples</h3>
-                            </a>
-                            <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;">
-                        </div>
 
-                        <div id="github" style="display: flex; margin-bottom: 1rem;" onclick="toast">
-                            <!-- <a> -->
-                            <h3 style="margin-right: 2rem;">GitHub</h3>
-                            <!-- </a> -->
-                            <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;">
-                        </div>
-                        <!-- <div style="display: flex; margin-bottom: 1rem;">
-                            <a href="pages/subpage/sampleProj.html">
-                                <h3 style="margin-right: 2rem;">Search</h3>
-                            </a>
-                            <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;">
-                        </div> -->
-                        <!-- <div style="display: flex; margin-bottom: 1rem;">
-                            <a href="pages/subpage/FAQ.html">
-                                <h3 style="margin-right: 2rem;">FAQ</h3>
-                            </a>
-                            <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;">
-                        </div> -->
+                </div>
+                <div style="display: flex; flex-direction: column; align-items:center;">
+                    <div style="display: flex; margin-bottom: 1rem;">
+                        <a href="pages/subpage/MFGuide.html">
+                            <h3>Mechanism and Fabrication</h3>
+                        </a>
+                        <!-- <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;"> -->
                     </div>
+                    <div style="display: flex; margin-bottom: 1rem;">
+                        <a href="pages/subpage/library.html">
+                            <h3>Plant-inspired Library</h3>
+                        </a>
+                        <!-- <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;"> -->
+                    </div>
+                    <div style="display: flex; margin-bottom: 1rem;">
+                        <a href="pages/subpage/appExamples.html">
+                            <h3>Application Examples</h3>
+                        </a>
+                        <!-- <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;"> -->
+                    </div>
+
+                    <div id="github" style="display: flex; margin-bottom: 1rem;" onclick="toast">
+                        <!-- <a> -->
+                        <h3>GitHub</h3>
+                        <!-- </a> -->
+                        <!-- <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;"> -->
+                    </div>
+                    <!-- <div style="display: flex; margin-bottom: 1rem;">
+                            <a href="pages/subpage/sampleProj.html">
+                                <h3>Search</h3>
+                            </a>
+                            <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;">
+                        </div> -->
+                    <!-- <div style="display: flex; margin-bottom: 1rem;">
+                            <a href="pages/subpage/FAQ.html">
+                                <h3>FAQ</h3>
+                            </a>
+                            <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;">
+                        </div> -->
                 </div>
             </div>
+        </div>
 
-        </div>
-        <div class="col img-container" style="height: 100%;">
-            <img src="resources/img/mainViz.png" alt="" class="img-fluid"> <!-- 使用 img-fluid 类来实现自动等比例缩放 -->
-        </div>
+    </div>
     </div>
 
     <script>
