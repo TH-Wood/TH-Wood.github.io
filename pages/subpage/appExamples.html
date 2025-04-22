@@ -235,6 +235,52 @@
             background-color: #D9D9D9;
             border-radius: 25px;
         }
+
+        .main {
+            margin: 4rem 18rem 0 18rem;
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                margin: 4rem 14rem 0 14rem;
+            }
+
+            .h1StylePTag {
+                font-size: 6rem;
+            }
+
+            h3 {
+                font-size: 3rem;
+            }
+
+            p {
+                font-size: 1.6rem;
+            }
+
+            .col-5 {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main {
+                margin: 4rem 10rem 0 10rem;
+            }
+
+            .h1StylePTag {
+                font-size: 7.5rem;
+            }
+
+            p {
+                font-size: 1.5rem;
+            }
+
+            .col-5 {
+                display: flex;
+                align-items: center;
+            }
+        }
     </style>
 </head>
 
@@ -257,7 +303,7 @@
         </div>
     </a> -->
 
-    <div style="margin: 4rem 18rem 0 18rem;">
+    <div class="main">
         <p class="h1StylePTag content" style="margin: 0 0 6rem 0;">
             Application Examples</p>
 

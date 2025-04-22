@@ -33,9 +33,6 @@
         }
 
         h1 {
-            /* font-family: 'Katibeh', cursive; */
-            /* font-family: 'Caveat', cursive; */
-            /* font-family: 'Vollkorn', serif; */
             font-family: 'DM Serif Display', serif;
             color: white;
             font-size: 4.5rem;
@@ -43,20 +40,14 @@
         }
 
         h3 {
-            /* font-family: 'Katibeh', cursive; */
-            /* font-family: 'Caveat', cursive; */
-            /* font-family: 'Vollkorn', serif; */
             font-family: 'DM Serif Display', serif;
             font-size: 1.5rem;
             color: white;
             margin: 0;
 
             position: relative;
-            /* 设置定位为相对定位，使 ::after 伪元素相对于 h3 元素定位 */
             display: inline-block;
-            /* 将 h3 元素设置为行内块元素，以使下划线只出现在文本的底部 */
             cursor: pointer;
-            /* 添加一个指针样式，以显示可以点击 */
         }
 
         .h3StylePTag {
@@ -66,35 +57,22 @@
             margin: 0;
 
             position: relative;
-            /* 设置定位为相对定位，使 ::after 伪元素相对于 h3 元素定位 */
-            display: inline-block;
-            /* 将 h3 元素设置为行内块元素，以使下划线只出现在文本的底部 */
         }
 
         h3::after {
             content: "";
-            /* 必须设置 content 属性，否则伪元素不会显示 */
             position: absolute;
-            /* 设置定位为绝对定位，相对于 h3 元素定位 */
             bottom: -3px;
-            /* 距离文本底部的距离，根据需要调整 */
             left: 0;
-            /* 设置伪元素的位置在文本最左边 */
             width: 100%;
-            /* 设置下划线宽度为 h3 元素的宽度 */
             height: 2px;
-            /* 设置下划线高度，根据需要调整 */
             background-color: white;
-            /* 设置下划线颜色，根据需要调整 */
             transform: scaleX(0);
-            /* 设置初始状态下划线宽度为 0，即不显示 */
             transition: transform 0.3s;
-            /* 添加过渡效果，使下划线显示时有动画效果 */
         }
 
         h3:hover::after {
             transform: scaleX(1);
-            /* 鼠标悬停时显示下划线，将宽度设置为 1，即与 h3 元素宽度一致 */
         }
 
         p {
@@ -124,6 +102,69 @@
             padding: 0;
             overflow: hidden;
         }
+
+        .custom {
+            padding: 0 12rem;
+        }
+
+        .title {
+            font-size: 8rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+        }
+
+        .mgb1rem {
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .mgb1rem {
+                margin-bottom: 2rem;
+            }
+
+            .custom {
+                padding: 0;
+            }
+
+            .title {
+                font-size: 18rem;
+                /* 移动端字体大小 */
+            }
+
+            .subtitle {
+                font-size: 3.6rem;
+            }
+
+            h3 {
+                font-size: 4rem;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            .mgb1rem {
+                margin-bottom: 1.8rem;
+            }
+
+            .custom {
+                padding: 0;
+            }
+
+            .title {
+                font-size: 16rem;
+                /* 更小屏幕的移动端字体大小 */
+            }
+
+            .subtitle {
+                font-size: 2.4rem;
+            }
+
+            h3 {
+                font-size: 3.6rem;
+            }
+        }
     </style>
 </head>
 
@@ -131,11 +172,12 @@
     <div class="row"
         style="background: url(resources/img/mainViz.png);background-size: cover;background-repeat: no-repeat;">
         <div style="display: flex; align-items: center; height: 100%;">
-            <div style="padding: 0 12rem;">
+            <div class="custom">
                 <div style="margin-bottom: 4rem;">
-                    <h1 style="text-align: center; margin-bottom: 1rem;font-size: 8rem;">TH-Wood</h1>
+                    <h1 class="title mgb1rem" style="text-align: center; ">TH-Wood</h1>
                     <div style="display: flex; align-items: center; justify-content: center;">
-                        <p style="width: 72%; text-align: center;font-size: 1.2rem;">A biodegradable actuator system
+                        <p class="subtitle" style="width: 72%; text-align: center;">A biodegradable
+                            actuator system
                             made
                             from wood veneer
                             and
@@ -145,38 +187,38 @@
 
                 </div>
                 <div style="display: flex; flex-direction: column; align-items:center;">
-                    <div style="display: flex; margin-bottom: 1rem;">
+                    <div style="display: flex; " class="mgb1rem">
                         <a href="pages/subpage/MFGuide.html">
                             <h3>Mechanism and Fabrication</h3>
                         </a>
                         <!-- <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;"> -->
                     </div>
-                    <div style="display: flex; margin-bottom: 1rem;">
+                    <div style="display: flex; " class="mgb1rem">
                         <a href="pages/subpage/library.html">
                             <h3>Plant-inspired Library</h3>
                         </a>
                         <!-- <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;"> -->
                     </div>
-                    <div style="display: flex; margin-bottom: 1rem;">
+                    <div style="display: flex; " class="mgb1rem">
                         <a href="pages/subpage/appExamples.html">
                             <h3>Application Examples</h3>
                         </a>
                         <!-- <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;"> -->
                     </div>
 
-                    <div id="github" style="display: flex; margin-bottom: 1rem;" onclick="toast">
+                    <div id="github" style="display: flex; " class="mgb1rem" onclick="toast">
                         <!-- <a> -->
                         <h3>GitHub</h3>
                         <!-- </a> -->
                         <!-- <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;"> -->
                     </div>
-                    <!-- <div style="display: flex; margin-bottom: 1rem;">
+                    <!-- <div style="display: flex; " class="mgb1rem">
                             <a href="pages/subpage/sampleProj.html">
                                 <h3>Search</h3>
                             </a>
                             <img src="resources/svg/rightArrow.svg" alt="" style="width: 2rem;">
                         </div> -->
-                    <!-- <div style="display: flex; margin-bottom: 1rem;">
+                    <!-- <div style="display: flex; " class="mgb1rem">
                             <a href="pages/subpage/FAQ.html">
                                 <h3>FAQ</h3>
                             </a>
